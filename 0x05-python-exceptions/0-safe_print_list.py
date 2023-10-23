@@ -1,12 +1,11 @@
 def safe_print_list(my_list=[], x=0):
     num = 0
 
-    for item in my_list:
-        if num >= x:
-            break
-
+    for i in range(x):
         try:
-            print(item, end="")
+            if i >= len(my_list):
+                break  # Stop if we've reached the end of the list
+            print(my_list[i], end="")
             num += 1
         except IndexError:
             break
