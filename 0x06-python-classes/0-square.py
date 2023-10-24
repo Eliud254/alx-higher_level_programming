@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""this is the definition of a square"""
+"""The definition of the square"""
 
 
 class Square:
-    """A square has equal dimensions"""
+    """The square has the  equal dimensions"""
     pass
