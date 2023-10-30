@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-
 import sys
 
 def is_safe(board, row, col):
-    # Check for queens attacking horizontally or diagonally
+    """ Check for queens attacking horizontally or diagonally"""
     for i in range(col):
         if board[i] == row or board[i] - i == row - col or board[i] + i == row + col:
             return False
