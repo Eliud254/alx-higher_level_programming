@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""To define the rectangle based on the 4-rectangle.py"""
+"""To define the rectangle based on the 6-rectangle.py"""
 
 
 class Rectangle:
