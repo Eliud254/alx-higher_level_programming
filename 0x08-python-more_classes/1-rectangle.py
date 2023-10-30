@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
-""" class Rectangle that defines a rectangle by: (based on 0-rectangle.py)"""
+""" class Rectangle that defines a rectangle by:
+    (based on 0-rectangle.py)"""
 
 
 class Rectangle:
-    """Defines a rectangle with private width and height attributes."""
+    """Defines a rectangle with private
+    width and height attributes."""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
