@@ -5,8 +5,7 @@
 
 
 class Rectangle:
-    """Defines a rectangle with private
-    width and height attributes."""
+    """Getter and setter in rectangle object"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
