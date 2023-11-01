@@ -1,69 +1,87 @@
 #!/usr/bin/python3
-# 101-nqueens.py
-"""Trying to Solves the N-queens puzzle."""
+
 import sys
 
-
 def init_board(n):
-    """Initialize an `n`x`n` sized chessboard with 0's."""
-    return [[' ' for i in range(n)] for j in range(n)]
+    board = []
+    [board.append([]) for i in range(n)]
+    [row.append(' ') for i in range(n) for row in board]
+    return board
 
-
-def is_safe(board, row, col, n):
-    """Check if the current position is safe to place a queen."""
-    for i in range(col):
-        if board[row][i] == 'Q':
-            return False
-
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 'Q':
-            return False
-
-    for i, j in zip(range(row, n, 1), range(col, -1, -1)):
-        if board[i][j] == 'Q':
-            return False
-
-    return True
-
-
-def solve_nqueens(board, col, n, solutions):
-    """Solve the N-queens puzzle using backtracking."""
-    if col == n:
-        solutions.append(get_solution(board))
-        return
-
-    for i in range(n):
-        if is_safe(board, i, col, n):
-            board[i][col] = 'Q'
-            solve_nqueens(board, col + 1, n, solutions)
-            board[i][col] = ' '
+def board_deepcopy(board):
+    if isinstance(board, list):
+        return list(map(board_deepcopy, board))
+    return board
 
 def get_solution(board):
-    """Return the list of lists representation of a solved chessboard."""
     solution = []
-    for row in board:
-        for i, val in enumerate(row):
-            if val == 'Q':
-                solution.append([board.index(row), i])
+    for r in range(len(board)):
+        for c in range(len(board)):
+            if board[r][c] == "Q":
+                solution.append([r, c])
+                break
     return solution
 
+def xout(board, row, col):
+    for c in range(col + 1, len(board)):
+        board[row][c] = "x"
+    for c in range(col - 1, -1, -1):
+        board[row][c] = "x"
+    for r in range(row + 1, len(board)):
+        board[r][col] = "x"
+    for r in range(row - 1, -1, -1):
+        board[r][col] = "x"
+    c = col + 1
+    for r in range(row + 1, len(board)):
+        if c >= len(board):
+            break
+        board[r][c] = "x"
+        c += 1
+    c = col - 1
+    for r in range(row - 1, -1, -1):
+        if c < 0:
+            break
+        board[r][c]
+        c -= 1
+    c = col + 1
+    for r in range(row - 1, -1, -1):
+        if c >= len(board):
+            break
+        board[r][c] = "x"
+        c += 1
+    c = col - 1
+    for r in range(row + 1, len(board)):
+        if c < 0:
+            break
+        board[r][c] = "x"
+        c -= 1
+
+def recursive_solve(board, row, queens, solutions):
+    if queens == len(board):
+        solutions.append(get_solution(board))
+        return solutions
+
+    for c in range(len(board)):
+        if board[row][c] == " ":
+            tmp_board = board_deepcopy(board)
+            tmp_board[row][c] = "Q"
+            xout(tmp_board, row, c)
+            solutions = recursive_solve(tmp_board, row + 1, queens + 1, solutions)
+
+    return solutions
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
-    if not sys.argv[1].isdigit():
+    if sys.argv[1].isdigit() is False:
         print("N must be a number")
         sys.exit(1)
     if int(sys.argv[1]) < 4:
         print("N must be at least 4")
         sys.exit(1)
 
-    n = int(sys.argv[1])
-    board = init_board(n)
-    solutions = []
-    solve_nqueens(board, 0, n, solutions)
-    
+    board = init_board(int(sys.argv[1]))
+    solutions = recursive_solve(board, 0, 0, [])
     for sol in solutions:
         print(sol)
-
