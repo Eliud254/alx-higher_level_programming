@@ -1,0 +1,1 @@
+At this stage, 102 int objects are created and still in memory.
