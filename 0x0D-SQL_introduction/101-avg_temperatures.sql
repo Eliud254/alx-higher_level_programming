@@ -1,0 +1,5 @@
+-- Import in hbtn_0c_o database
+-- Script that display the top 3 of cities temp
+ALTER DATABASE hbtn_0c_0 CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE first_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE first_table MODIFY name TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
