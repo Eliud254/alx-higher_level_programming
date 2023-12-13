@@ -1,3 +1,2 @@
--- Script that insert a new row in the table 
--- The tables name should be passed as an argument
+-- Script that insert a new row in the table
 INSERT INTO first_table VALUES ('89', 'Holberton School');
