@@ -1,9 +1,7 @@
--- Script that lists all Comedy shows in the database hbtn_0d_tvshows.
---Script that lists all rows of a database corresponding to a column value.
-SELECT title
-FROM tv_shows
-LEFT JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
-LEFT JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy'
-GROUP BY title
-ORDER BY title ASC;
+-- listing  all the Comedy shows in the database hbtn_0d_tvshows.
+SELECT s.title
+FROM tv_shows s
+LEFT JOIN tv_show_genres sg ON sg.show_id = s.id
+LEFT JOIN tv_genres g ON sg.genre_id = g.id
+WHERE g.name = 'Comedy'
+ORDER BY s.title ASC, g.id ASC;
