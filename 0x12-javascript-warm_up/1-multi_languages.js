@@ -1,5 +1,4 @@
 #!/usr/bin/node
-// Script that print 3 lines.
 
 const myVar = 'C is fun'
 const myVar1 = 'Python is cool'
