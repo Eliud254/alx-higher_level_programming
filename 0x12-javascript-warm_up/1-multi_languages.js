@@ -1,3 +1,4 @@
+#!/usr/bin/node
 /*Script that print 3 lines.
   Must use console.log(...) to print all output.
   Using var is not allowed.

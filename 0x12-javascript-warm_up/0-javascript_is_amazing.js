@@ -1,3 +1,4 @@
+#!/usr/bin/node
 /*Script that prints JavaScript is amazing
   You must create constant myVar
   Don't use Var
