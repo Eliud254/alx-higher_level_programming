@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 """
-Imported modules
-declarative_base from sqlalchemy
+Import the modules
+Declarative_base from thesqlalchemy
 """
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 
-""" Create a directive base """
+""" Creating the directive base """
 Base = declarative_base()
 
 
 class State(Base):
     """
-    State Class Definition
+     The state Class Definition
     Params:
        id: id field ogf the class
        name: state name
