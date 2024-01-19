@@ -1,21 +1,30 @@
 #!/usr/bin/python3
 """
-lists all State objects
+This script interacts with a MySQL database using SQLAlchemy.
+It imports necessary modules and performs basic database operations.
 """
 
-import sqlalchemy
+# Importing necessary modules
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sys import argv
 from model_state import Base, State
 
 if __name__ == "__main__":
-    eng = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1],
-                                                                    argv[2],
-                                                                    argv[3]))
-    Base.metadata.create_all(eng)
-    Session = sessionmaker(bind=eng)
+    # Creating a database engine
+    engine = create_engine(f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}')
+
+    # Creating a session using the sessionmaker method
+    Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
+
+    # Creating tables specified in models
+    Base.metadata.create_all(engine)
+
+    # Querying the database for states and printing the results
+    states_list = session.query(State).order_by(State.id).all()
+    for state in states_list:
+        print(f'{state.id}: {state.name}')
+
+    # Closing the current session once all states are printed
     session.close()
