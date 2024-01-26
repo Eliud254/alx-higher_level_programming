@@ -1,20 +1,22 @@
 #!/usr/bin/python3
 """
-script that fetches https://alx-intranet.hbtn.io/status
+A script that fetches https://alx-intranet.hbtn.io/status
 """
-import urllib.reguest
+import urllib.request
 
-def main()
-"""
-The function to print the reponse of the specific url
-"""
-url = 'https://alx-intranet.hbtn.io/statu'
-with urllib.request.urlopen(url) as response:
-    htm = response.read()
-    print('body response:')
-    print('Body response:')
-    print('\t- content: {}'.format(html))
-    print('\t- utf8 content: {}'.format(html.decode('utf8')))
 
-    if _name_ == "_main_":
-        main()
+def main():
+    """
+    Funtion to print a response of a specific url
+    """
+    url = 'https://alx-intranet.hbtn.io/status'
+    with urllib.request.urlopen(url) as response:
+        html = response.read()
+        print('Body response:')
+        print('\t- type: {}'.format(type(html)))
+        print('\t- content: {}'.format(html))
+        print('\t- utf8 content: {}'.format(html.decode('utf8')))
+
+
+if __name__ == "__main__":
+    main()
