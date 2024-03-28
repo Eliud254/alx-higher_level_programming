@@ -4,22 +4,6 @@
 
 This project delves into the realm of Test-Driven Development (TDD) in Python. It covers various tasks centered around writing test cases before code implementation, a crucial aspect of software development methodology.
 
-## Project Specifications
-
-- **Language:** Python
-- **Primary Concepts:** Python programming, UnitTests, Test-Driven Development (TDD)
-- **Project Author:** Guillaume
-- **Project Weight:** 1
-- **Duration:** Ongoing second chance project; started on Oct 26, 2023, must end by Nov 4, 2023
-- **Auto Review:** An auto review will be launched at the deadline
-
-## Assessment Metrics
-
-- **Auto QA Review:** 0.0/167 mandatory & 0.0/104 optional
-- **Overall Evaluation:** 0.0%
-- **Mandatory Criteria:** 0.0%
-- **Optional Criteria:** 0.0%
-- **Calculation:** 0.0% + (0.0% * 0.0%) == 0.0%
 
 ## Concepts Covered
 
